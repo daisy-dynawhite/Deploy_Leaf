@@ -1,0 +1,73 @@
+---
+peers:
+- peer: SPN201
+  peer_ip: 192.168.0.201
+- peer: SPN202
+  peer_ip: 192.168.0.202
+
+vlans:
+- vlan: 20
+  name: L2VNI-VLAN20
+  vni: 10020
+  mcast: 238.0.0.20
+- vlan: 30
+  name: L2VNI-VLAN30
+  vni: 10030
+  mcast: 238.0.0.30
+- vlan: 40
+  name: L2VNI-VLAN40
+  vni: 10040
+  mcast: 238.0.0.40
+
+rp:
+- address: 192.168.238.1
+  gl: "224.0.0.0/4"
+  ssm: "232.0.0.0/8"
+
+loopbacks:
+- id: 0
+  desc: "*** Underlay Lo ***"
+  ipaddr: "192.168.0.104/32"
+- id: 100
+  desc: "*** NVE / BGP  ***"
+  ipaddr: "192.168.100.104/32"
+
+rp:
+- address: 192.168.238.1
+  gl: "224.0.0.0/4"
+  ssm: "232.0.0.0/8"
+
+uplinks:
+- intf: "Ethernet1/6"
+  desc: "LFN104 1/6 - SPN201 1/4"
+  lb: 0
+- intf: "Ethernet1/7"
+  desc: "LFN104 1/7 - SPN202 1/4"
+  lb: 0
+
+trunks:
+- intf: "Ethernet1/1"
+  desc: "*** LFN104 1/1 - SEC001 1/2 ***"
+  avlans: "20,30,40"
+- intf: "Ethernet1/2"
+  desc: "*** LFN104 1/2 - SEC002 1/2 ***"
+  avlans: "20,30,40"
+
+access:
+- intf: "Ethernet1/3"
+  desc: "*** TBC ***"
+  avlans: "20"
+
+#Standalone vars
+rid: 192.168.0.104
+ospfarea: 0.0.0.0
+ospfproc: underlay
+hostname: DAYZ-LFN104
+asn: 65000
+brid: 192.168.100.104
+
+neighbors:
+- nid: 192.168.100.201
+  ras: 65000
+  usrc: "loopback100"
+  
