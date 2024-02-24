@@ -10,9 +10,9 @@ pword = getpass.getpass()
 
 #Declare template variables
 environment = Environment(loader=FileSystemLoader("."))
-template = environment.get_template("Device_Template.jinja2")
+template = environment.get_template("Device_Onboard_Template.jinja2")
 
-with open('Device_Vars.yaml', 'r') as vars:
+with open('Device_Onboard_Vars.yaml', 'r') as vars:
 	lvars = yaml.safe_load(vars)
 
 #Render config text via Jinja2 template
