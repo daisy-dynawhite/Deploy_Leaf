@@ -45,8 +45,29 @@ uplinks:
   desc: "LFN104 1/7 - SPN202 1/4"
   lb: 0
 
+trunks:
+- intf: "Ethernet1/1"
+  desc: "*** LFN104 1/1 - SEC001 1/2 ***"
+  avlans: "20,30,40"
+- intf: "Ethernet1/2"
+  desc: "*** LFN104 1/2 - SEC002 1/2 ***"
+  avlans: "20,30,40"
+
+access:
+- intf: "Ethernet1/3"
+  desc: "*** TBC ***"
+  avlans: "20"
+
 #Standalone vars
-rid: 192.168.0.101
+rid: 192.168.0.104
 ospfarea: 0.0.0.0
 ospfproc: underlay
 hostname: DAYZ-LFN104
+asn: 65000
+brid: 192.168.100.104
+
+neighbors:
+- nid: 192.168.100.201
+  ras: 65000
+  usrc: "loopback100"
+  

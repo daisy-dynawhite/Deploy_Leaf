@@ -15,7 +15,10 @@ template = environment.get_template("Device_Template.jinja2")
 with open('Device_Vars.yaml', 'r') as vars:
 	lvars = yaml.safe_load(vars)
 
-#peers = [{'peer': 'SPN201', 'peer_ip': '192.168.0.201'},{'peer': 'SPN202', 'peer_ip': '192.168.0.202'}]
-
+#Render config text via Jinja2 template
 output = template.render(lvars=lvars)
-print(output)
+
+#Save config to file
+fname = lvars['hostname']+".txt"
+with open (fname, mode="w", encoding="utf-8") as message:
+	message.write(output)
