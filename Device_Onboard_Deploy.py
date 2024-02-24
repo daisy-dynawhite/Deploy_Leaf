@@ -17,7 +17,7 @@ device = {
         'device_type': 'cisco_nxos',
         'host': '192.168.186.148',
         'username': 'admin',
-        'password': 'daisy',
+        'password': pword,
 }
 
 #Connect do device and store commands to variables
