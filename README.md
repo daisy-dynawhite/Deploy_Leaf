@@ -8,4 +8,4 @@
 - <p>This project is designed to automate the configuration deployment of Cisco Nexus 9K devices operating within VXLAN BGP EVPN solutions.</p>
 
 ## :dart: Languages
-- Python3, Jinja2, HTML5, YAML and CSS3
+- Python3, Jinja2 and YAML.
